@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cronómetro Appwise</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #121212;
+        color: #ffffff;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .contenedor {
+        text-align: center;
+      }
+
+      h1 {
+        color: #00ffcc;
+        margin-bottom: 8px;
+        font-size: 2rem;
+      }
+
+      p {
+        color: #aaaaaa;
+        margin-bottom: 40px;
+      }
+
+      /* === DISPLAY DEL CRONÓMETRO === */
+      #display {
+        font-size: 6rem;
+        font-weight: bold;
+        letter-spacing: 8px;
+        color: #00ffcc;
+        background-color: #1e1e1e;
+        border: 2px solid #00ffcc;
+        border-radius: 16px;
+        padding: 20px 40px;
+        margin-bottom: 40px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* === BOTONES === */
+      .controles {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      button {
+        padding: 14px 32px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition:
+          transform 0.1s ease,
+          opacity 0.2s;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      #btn-play {
+        background-color: #00ffcc;
+        color: #121212;
+      }
+
+      #btn-pause {
+        background-color: #ffaa00;
+        color: #121212;
+      }
+
+      #btn-reset {
+        background-color: #ff4444;
+        color: #ffffff;
+      }
+
+      button:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>⏱️ Cronómetro</h1>
+      <p>Clase de setInterval en acción</p>
+
+      <!-- El display que muestra MM:SS -->
+      <div id="display">00:00</div>
+
+      <!-- Los tres controles -->
+      <div class="controles">
+        <button id="btn-play">▶ Play</button>
+        <button id="btn-pause" disabled>⏸ Pause</button>
+        <button id="btn-reset">🔄 Reset</button>
+      </div>
+    </div>
+
+    <script src="cronometro.js"></script>
+  </body>
+</html>

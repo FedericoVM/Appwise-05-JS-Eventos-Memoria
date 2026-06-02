@@ -1,0 +1,11 @@
+{
+  "name": "katas-storage",
+  "version": "1.0.0",
+  "description": "Katas de JSON y Estructuras de Datos — Appwise",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}

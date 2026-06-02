@@ -1,0 +1,233 @@
+/* ============================================================
+   VARIABLES Y RESET
+============================================================ */
+:root {
+  --bg: #0d1117; /* Fondo principal (estilo GitHub Dark) */
+  --surface: #161b22; /* Tarjetas */
+  --surface2: #21262d; /* Elementos internos */
+  --border: #30363d; /* Bordes */
+  --green: #3fb950; /* Éxito / Añadidos */
+  --purple: #bc8cff; /* Etiquetas / Pasos */
+  --blue: #58a6ff; /* Títulos / Retornos */
+  --red: #f85149; /* Eliminados / Errores */
+  --muted: #8b949e; /* Texto secundario */
+  --text: #c9d1d9; /* Texto principal */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  padding: 30px;
+}
+
+/* ============================================================
+   NAVEGACIÓN (TABS)
+============================================================ */
+.tabs-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+
+.tab {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background: var(--surface2);
+}
+
+.tab.active {
+  background: var(--purple);
+  color: #000;
+  border-color: var(--purple);
+}
+
+/* ============================================================
+   GRILLA DE TARJETAS
+============================================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.card-emoji {
+  font-size: 2.5rem;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--blue);
+  margin-bottom: 5px;
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   CÓDIGO Y CONSOLA DE SALIDA
+============================================================ */
+.card-code {
+  background: #000000;
+  color: var(--green);
+  padding: 15px;
+  border-radius: 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+.btn-run {
+  background: var(--green);
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  transition: transform 0.1s;
+}
+
+.btn-run:active {
+  transform: scale(0.98);
+}
+
+.output {
+  background: #000000;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 15px;
+  min-height: 80px;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+/* Animación cuando se ejecuta el código */
+.output.visible {
+  animation: destello 0.4s ease-out;
+}
+
+@keyframes destello {
+  0% {
+    background-color: rgba(63, 185, 80, 0.2);
+  }
+  100% {
+    background-color: #000000;
+  }
+}
+
+/* ============================================================
+   ESTILOS VISUALES DEL MOTOR INTERACTIVO
+============================================================ */
+.step {
+  margin-bottom: 10px;
+}
+
+.step-label {
+  color: var(--purple);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.arrow {
+  color: var(--muted);
+  margin: 5px 0 5px 15px;
+  border-left: 2px solid var(--border);
+  padding-left: 10px;
+}
+
+.ret {
+  color: var(--blue);
+  font-weight: bold;
+  margin-top: 10px;
+  background: rgba(88, 166, 255, 0.1);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.ret-label {
+  color: var(--text);
+  margin-right: 8px;
+}
+
+/* Arrays y Elementos */
+.vis-array {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vis-item {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+.vis-item.added {
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(63, 185, 80, 0.1);
+}
+
+.vis-item.removed {
+  border-color: var(--red);
+  color: var(--red);
+  background: rgba(248, 81, 73, 0.1);
+  text-decoration: line-through;
+}
+
+.vis-item.highlight {
+  border-color: var(--blue);
+  box-shadow: 0 0 8px rgba(88, 166, 255, 0.4);
+}
